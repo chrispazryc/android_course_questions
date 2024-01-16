@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 
 /**
  *  This project is an adaptation from Google Sample Code. It includes:
@@ -66,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
      * @param view The view (Button) that was clicked.
      */
     public void countUp(View view) {
+        mCount += 1;
+        mShowCountTextView.setText(String.format(Locale.US, "%d", mCount));
+
     }
 
     //TODO 2
@@ -78,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
      * @param view The view (Button) that was clicked.
      */
     public void reset(View view) {
+        mCount = 0;
+        mShowCountTextView.setText(String.format(Locale.US, "%d", 0));
     }
 
     //TODO 3
