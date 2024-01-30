@@ -95,6 +95,11 @@ public class MainActivity extends AppCompatActivity {
      * @param view The view (Button) that was clicked.
      */
     public void savePrefs(View view) {
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.putInt(COLOR_KEY, mColor);
+        editor.putInt(COUNT_KEY, mCount);
+        editor.apply();
+
     }
 
     //TODO 4
@@ -106,6 +111,17 @@ public class MainActivity extends AppCompatActivity {
      * @param view The view (Button) that was clicked.
      */
     public void restaurePrefs(View view) {
+
+        int restoredCount = mPreferences.getInt(COUNT_KEY, 0);
+        int restoredColor = mPreferences.getInt(COLOR_KEY, ContextCompat.getColor(this, R.color.default_background));
+
+
+        mCount = restoredCount;
+        mColor = restoredColor;
+
+
+        mShowCountTextView.setText(String.format(Locale.US, "%d", mCount));
+        mShowCountTextView.setBackgroundColor(mColor);
     }
 
 }
