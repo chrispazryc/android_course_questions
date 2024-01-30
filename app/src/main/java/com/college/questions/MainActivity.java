@@ -119,7 +119,6 @@ public class MainActivity extends AppCompatActivity {
         mCount = restoredCount;
         mColor = restoredColor;
 
-
         mShowCountTextView.setText(String.format(Locale.US, "%d", mCount));
         mShowCountTextView.setBackgroundColor(mColor);
     }
